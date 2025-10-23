@@ -7,6 +7,7 @@ app.use(express.json());
 app.post("/skill", async (req, res) => {
   const userMessage = req.body.userRequest.utterance;
 
+  // AI API 호출
   const aiResponse = await axios.post(
     "https://api.openai.com/v1/chat/completions",
     {
@@ -32,4 +33,3 @@ app.post("/skill", async (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
-
