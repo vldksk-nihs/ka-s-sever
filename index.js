@@ -1,3 +1,11 @@
+
+import OpenAI from "openai";
+import { Pinecone } from "@pinecone-database/pinecone";
+
+const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+const pinecone = new Pinecone({ apiKey: process.env.PINECONE_API_KEY });
+const index = pinecone.index("my-index");
+
 import express from "express";
 import axios from "axios";
 
@@ -33,3 +41,4 @@ app.post("/skill", async (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
+
